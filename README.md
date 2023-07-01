@@ -1,63 +1,27 @@
-# Nuxt 3 Minimal Starter
+# portfolio
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is the source code for my personal website.
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
+# install dependencies
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# start the development server on http://localhost:3000
 npm run dev
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
+# build the application for production
 npm run build
 
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
+# locally preview production build
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
 ```
+## Techonologies Used:
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- [Vue](https://vuejs.org/)
+- [Nuxt.js](https://nuxt.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Netlify](https://www.netlify.com/)
