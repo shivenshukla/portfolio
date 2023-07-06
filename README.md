@@ -4,8 +4,6 @@ This is the source code for my personal website.
 
 ## Setup
 
-Make sure to install the dependencies:
-
 ```bash
 # install dependencies
 npm install
