@@ -5,6 +5,12 @@ const links = [
 ]
 </script>
 
+<style>
+html {
+	scroll-behavior: smooth;
+}
+</style>
+
 <template>
 	<section class="pt-5 pb-10">
 		<h1 class="text-6xl font-bold mt-20">Shiven Shukla</h1>
@@ -16,16 +22,18 @@ const links = [
 		</div>
 	</section>
 	<section class="flex flex-col md:flex-row pb-10">
-		<div class="md:w-3/4" id="about">
+		<div class="md:w-3/4 relative">
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">About Me</h2>
+			<a style="top: -45px; position: absolute;" name="about"></a>
 			<p class="text-lg py-2">
 				Hi! I am a Junior Software Engineer studying Computer Science at the University of British Columbia.
 			</p>
 		</div>
 	</section>
 	<section class="pb-10">
-		<div class="md:w-3/4" id="experience">
+		<div class="md:w-3/4 relative">
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">Experience</h2>
+			<a style="top: -75px; position: absolute;" name="experience"></a>
 		</div>
 		<div class="p-5 my-4 border rounded-lg shadow-md shadow-gray-100">
 			<h3 class="text-2xl font-bold"><a href="https://www.planview.com/" class="hover:text-sky-700">Planview</a></h3>
@@ -50,8 +58,9 @@ const links = [
 		</div>
 	</section>
 	<section class="pb-10">
-		<div class="md:w-3/4" id="projects">
+		<div class="md:w-3/4 relative">
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">Projects</h2>
+			<a style="top: -75px; position: absolute;" name="projects"></a>
 		</div>
 		<div class="p-5 border my-4 rounded-lg shadow-md shadow-gray-100">
 			<h3 class="text-2xl font-bold"><a href="https://github.com/shivenshukla/portfolio" class="hover:text-sky-700">portfolio</a></h3>
