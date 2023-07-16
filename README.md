@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/34f74a60-eae0-4705-a322-25166ddceb86/deploy-status)](https://app.netlify.com/sites/shivenshukla/deploys)
 
-This is the source code for my personal website at [shivenshukla.netlify.app](https://shivenshukla.netlify.app).
+This is the source code for my personal website at [shivenshukla.com](https://shivenshukla.com).
 
 ## Setup
 
