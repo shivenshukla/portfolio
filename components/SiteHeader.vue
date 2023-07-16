@@ -28,13 +28,13 @@ html {
 </style>
 
 <template>
-	<Disclosure as="nav" class="fixed w-full dark:bg-zinc-800 light:bg-white shadow-md z-50 opacity-100" v-slot="{ open }">
+	<Disclosure as="nav" class="fixed w-full dark:bg-zinc-800 light:bg-white shadow-md z-50 opacity-100 dark:shadow-zinc-900" v-slot="{ open }">
 		<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 			<div class="relative flex h-16 items-center justify-between">
 				<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
 					<!-- Mobile menu button-->
 					<DisclosureButton
-						class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-sky-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+						class="inline-flex items-center justify-center rounded-md p-2 text-sky-500 hover:bg-sky-50">
 						<span class="sr-only">Open main menu</span>
 						<Bars3Icon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
 						<XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
@@ -55,7 +55,7 @@ html {
 				</div>
 				<div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 					<button
-						class="ml-6 text-sky-500 p-1 hover:border hover:rounded-full hover:border-sky-500 hover:bg-sky-100"
+						class="ml-6 text-sky-500 p-2 hover:rounded-full hover:bg-sky-100"
 						@click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')">
 						<LightBulbIcon class="h-6 w-6"/>
 					</button>

@@ -35,7 +35,7 @@ html {
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">Experience</h2>
 			<a style="top: -75px; position: absolute;" name="experience"></a>
 		</div>
-		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-black dark:border-black">
+		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-950">
 			<h3 class="text-2xl font-bold"><a href="https://www.planview.com/" class="hover:text-sky-700">Planview</a></h3>
 			<div>
 				<p class="float-left">Junior Software Engineer</p>
@@ -45,7 +45,7 @@ html {
 				<p class="px-2 rounded-md bg-sky-100 text-sky-700">Java</p>
 			</div>
 		</div>
-		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-black dark:border-black">
+		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-950">
 			<h3 class="text-2xl font-bold"><a href="https://www.calabrio.com/" class="hover:text-sky-700">Calabrio</a></h3>
 			<div>
 				<p class="float-left">Software Engineer Intern</p>
@@ -62,7 +62,7 @@ html {
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">Projects</h2>
 			<a style="top: -75px; position: absolute;" name="projects"></a>
 		</div>
-		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-black dark:border-black">
+		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-950">
 			<h3 class="text-2xl font-bold"><a href="https://github.com/shivenshukla/portfolio" class="hover:text-sky-700">portfolio</a></h3>
 			<p>My personal website built in Vue using Nuxt.js and Tailwind CSS</p>
 			<div class="flex flex-none mt-6">
@@ -71,7 +71,7 @@ html {
 				<p class="px-2 rounded-md bg-sky-100 text-sky-700">Tailwind CSS</p>
 			</div>
 		</div>
-		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-black dark:border-black">
+		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-950">
 			<h3 class="text-2xl font-bold"><a href="https://github.com/shivenshukla/budget-manager" class="hover:text-sky-700">budget-manager</a></h3>
 			<p>A Java desktop application for managing a budget</p>
 			<div class="flex flex-none mt-6">
