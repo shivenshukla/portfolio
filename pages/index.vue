@@ -3,13 +3,16 @@ const links = [
 	{ name: 'GitHub', href: 'https://github.com/shivenshukla', icon: 'entypo-social:github-with-circle' },
 	{ name: 'LinkedIn', href: 'https://www.linkedin.com/in/shiven-shukla', icon: 'entypo-social:linkedin-with-circle' }
 ]
-</script>
+const experiences = [
+	{ company: 'Planview', site: 'https://www.planview.com/', position: 'Junior Software Engineer', start: 'May 2023', end: 'Present', skills: ['Java'] },
+	{ company: 'Calabrio', site: 'https://www.calabrio.com/', position: 'Software Engineer Intern', start: 'Jan', end: 'Aug 2022', skills: ['Java', 'AWS', 'Azure Pipelines'] }
+]
 
-<style>
-html {
-	scroll-behavior: smooth;
-}
-</style>
+const projects = [
+	{ name: 'portfolio', code: 'https://github.com/shivenshukla/portfolio', description: "My personal website built in Vue using Nuxt.js and Tailwind CSS", skills: ['Vue', 'Nuxt.js', 'Tailwind CSS'] },
+	{ name: 'budget-manager', code: 'https://github.com/shivenshukla/budget-manager', description: "A budget management application built in Java", skills: ['Java'] }
+]
+</script>
 
 <template>
 	<section class="pt-5 pb-10">
@@ -26,7 +29,7 @@ html {
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">About Me</h2>
 			<a style="top: -45px; position: absolute;" name="about"></a>
 			<p class="text-lg py-2">
-				Hi! I am a Junior Software Engineer studying Computer Science at the University of British Columbia.
+				Hi! I am a Junior Software Engineer studying Computer Science at <a class="font-semibold hover:text-sky-700" href="https://www.ubc.ca/">The University of British Columbia</a>.
 			</p>
 		</div>
 	</section>
@@ -35,48 +38,16 @@ html {
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">Experience</h2>
 			<a style="top: -75px; position: absolute;" name="experience"></a>
 		</div>
-		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-950">
-			<h3 class="text-2xl font-bold"><a href="https://www.planview.com/" class="hover:text-sky-700">Planview</a></h3>
-			<div>
-				<p class="float-left">Junior Software Engineer</p>
-				<p class="float-right text-right">May 2023 to Present</p>
-			</div>
-			<div class="clear-both flex flex-none pt-6">
-				<p class="px-2 rounded-md bg-sky-100 text-sky-700">Java</p>
-			</div>
-		</div>
-		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-950">
-			<h3 class="text-2xl font-bold"><a href="https://www.calabrio.com/" class="hover:text-sky-700">Calabrio</a></h3>
-			<div>
-				<p class="float-left">Software Engineer Intern</p>
-				<p class="float-right text-right">Jan to Aug 2022</p>
-			</div>
-			<div class="clear-both flex flex-none pt-6">
-				<p class="mr-2 px-2 rounded-md bg-sky-100 text-sky-700">Java</p>
-				<p class="px-2 rounded-md bg-sky-100 text-sky-700">AWS</p>
-			</div>
-		</div>
+		<ExperienceCard v-for="experience in experiences" :key="experience.company" :company="experience.company"
+			:site="experience.site" :position="experience.position" :start="experience.start" :end="experience.end"
+			:skills="experience.skills" />
 	</section>
 	<section class="pb-10">
 		<div class="md:w-3/4 relative">
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">Projects</h2>
 			<a style="top: -75px; position: absolute;" name="projects"></a>
 		</div>
-		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-950">
-			<h3 class="text-2xl font-bold"><a href="https://github.com/shivenshukla/portfolio" class="hover:text-sky-700">portfolio</a></h3>
-			<p>My personal website built in Vue using Nuxt.js and Tailwind CSS</p>
-			<div class="flex flex-none mt-6">
-				<p class="mr-2 px-2 rounded-md bg-sky-100 text-sky-700">Vue</p>
-				<p class="mr-2 px-2 rounded-md bg-sky-100 text-sky-700">Nuxt.js</p>
-				<p class="px-2 rounded-md bg-sky-100 text-sky-700">Tailwind CSS</p>
-			</div>
-		</div>
-		<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-950">
-			<h3 class="text-2xl font-bold"><a href="https://github.com/shivenshukla/budget-manager" class="hover:text-sky-700">budget-manager</a></h3>
-			<p>A Java desktop application for managing a budget</p>
-			<div class="flex flex-none mt-6">
-				<p class="px-2 rounded-md bg-sky-100 text-sky-700">Java</p>
-			</div>
-		</div>
+		<ProjectCard v-for="project in projects" :key="project.name" :name="project.name" :code="project.code"
+			:description="project.description" :skills="project.skills" />
 	</section>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon, LightBulbIcon } from '@heroicons/vue/24/outline'
 
 const route = { name: 'index' };
@@ -16,16 +16,6 @@ const setColorTheme = (newTheme: Theme) => {
 	useColorMode().preference = newTheme
 }
 </script>
-
-<style>
-html {
-	scroll-behavior: smooth;
-}
-
-.fixed {
-	background-color: white;
-}
-</style>
 
 <template>
 	<Disclosure as="nav" class="fixed w-full dark:bg-zinc-800 light:bg-white shadow-md z-50 opacity-100 dark:shadow-zinc-900" v-slot="{ open }">
@@ -72,3 +62,9 @@ html {
 		</DisclosurePanel>
 	</Disclosure>
 </template>
+
+<style>
+.fixed {
+	background-color: white;
+}
+</style>
