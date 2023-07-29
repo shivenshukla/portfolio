@@ -18,19 +18,12 @@ const setColorTheme = (newTheme: Theme) => {
 </script>
 
 <template>
-	<Disclosure as="nav" class="fixed w-full dark:bg-zinc-800 light:bg-white shadow-md z-50 opacity-100 dark:shadow-zinc-900" v-slot="{ open }">
+	<Disclosure as="nav"
+		class="fixed w-full bg-white dark:bg-zinc-800 shadow-md z-50 opacity-100 dark:shadow-zinc-900"
+		v-slot="{ open }">
 		<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 			<div class="relative flex h-16 items-center justify-between">
-				<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-					<!-- Mobile menu button-->
-					<DisclosureButton
-						class="inline-flex items-center justify-center rounded-md p-2 text-sky-500 hover:bg-sky-50">
-						<span class="sr-only">Open main menu</span>
-						<Bars3Icon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
-						<XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
-					</DisclosureButton>
-				</div>
-				<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+				<div class="flex flex-1 items-center justify-start sm:items-stretch">
 					<div class="flex flex-shrink-0 items-center">
 						<a href="#"><img class="block h-8 w-auto lg:hidden" src="~/assets/images/icon.png" alt="S" /></a>
 						<a href="#"><img class="hidden h-8 w-auto lg:block" src="~/assets/images/icon.png" alt="S" /></a>
@@ -38,17 +31,26 @@ const setColorTheme = (newTheme: Theme) => {
 					<div class="hidden sm:ml-6 sm:block">
 						<div class="flex space-x-4">
 							<a v-for="item in navigation" :key="item.name" :href="item.href"
-								:class="[item.current ? 'text-sky-500' : 'text-sky-500 hover:bg-sky-50', 'rounded-md px-3 py-2 text-sm font-bold']"
+								:class="[item.current ? 'text-sky-500' : 'text-sky-500 hover:bg-sky-50 dark:hover:bg-zinc-700', 'rounded-md px-3 py-2 text-sm font-bold']"
 								:aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
 				</div>
-				<div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-					<button
-						class="ml-6 text-sky-500 p-2 hover:rounded-full hover:bg-sky-100"
-						@click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')">
-						<LightBulbIcon class="h-6 w-6"/>
-					</button>
+				<div class="flex">
+					<div class="inset-y-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+						<button class="ml-6 text-sky-500 p-2 hover:rounded-full hover:bg-sky-50 dark:hover:bg-zinc-700"
+							@click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')">
+							<LightBulbIcon class="h-6 w-6" />
+						</button>
+					</div>
+					<div class="inset-y-0 flex items-center sm:hidden">
+						<DisclosureButton
+							class="inline-flex items-center justify-center rounded-md p-2 text-sky-500 hover:bg-sky-50 dark:hover:bg-zinc-700">
+							<span class="sr-only">Open main menu</span>
+							<Bars3Icon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
+							<XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
+						</DisclosureButton>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -56,7 +58,7 @@ const setColorTheme = (newTheme: Theme) => {
 		<DisclosurePanel class="sm:hidden">
 			<div class="space-y-1 px-2 pb-3 pt-2">
 				<DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href"
-					:class="[item.current ? 'text-sky-500' : 'text-sky-500 hover:bg-sky-50', 'block rounded-md px-3 py-2 text-base font-bold']"
+					:class="[item.current ? 'text-sky-500' : 'text-sky-500 hover:bg-sky-50 dark:hover:bg-zinc-700', 'block rounded-md px-3 py-2 text-base font-bold text-center']"
 					:aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
 			</div>
 		</DisclosurePanel>
