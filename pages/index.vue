@@ -20,7 +20,7 @@ const projects = [
 		<p class="text-lg text-gray-700 dark:text-gray-200">Junior Software Engineer at Planview</p>
 		<div class="flex flex-row gap-4 my-4">
 			<a v-for="link in links" :key="link.name" :href="link.href">
-				<Icon :name="link.icon" size="2.75rem" class="text-sky-500 drop-shadow-md" />
+				<Icon :name="link.icon" size="2.75rem" class="text-sky-500 hover:text-sky-400 drop-shadow-md" />
 			</a>
 		</div>
 	</section>
@@ -29,7 +29,7 @@ const projects = [
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">About Me</h2>
 			<a style="top: -45px; position: absolute;" name="about"></a>
 			<p class="text-lg py-2">
-				Hi! I am a Junior Software Engineer studying Computer Science at the <a class="font-semibold hover:underline underline-offset-[5px] decoration-2" href="https://www.ubc.ca/">University of British Columbia</a>.
+				Hi! I am a Junior Software Engineer studying Computer Science at the <a class="font-semibold underline underline-offset-[5px] decoration-2 decoration-transparent hover:decoration-black dark:hover:decoration-white transition-[text-decoration-color] duration-200" href="https://www.ubc.ca/">University of British Columbia</a>.
 			</p>
 		</div>
 	</section>
