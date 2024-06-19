@@ -5,7 +5,7 @@ import { Bars3Icon, XMarkIcon, LightBulbIcon } from '@heroicons/vue/24/outline'
 const route = { name: 'index' };
 
 const navigation = [
-	{ name: 'About', href: '#about', current: route.name == 'about' },
+	// { name: 'About', href: '#about', current: route.name == 'about' },
 	{ name: 'Experience', href: '#experience', current: route.name == 'experience' },
 	{ name: 'Projects', href: '#projects', current: route.name == 'projects' },
 ]
