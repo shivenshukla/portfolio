@@ -64,9 +64,3 @@ const setColorTheme = (newTheme: Theme) => {
 		</DisclosurePanel>
 	</Disclosure>
 </template>
-
-<style>
-.fixed {
-	background-color: white;
-}
-</style>
