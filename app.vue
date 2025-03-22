@@ -1,6 +1,7 @@
 <template>
   <Head>
     <Title>Shiven Shukla</Title>
+    <Meta name="theme-color" content="#27272A"/>
   </Head>
   <div class="flex flex-col min-h-screen dark:bg-zinc-800 dark:text-white">
     <SiteHeader />
