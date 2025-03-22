@@ -11,7 +11,7 @@ defineProps({
 
 <template>
 	<div class="p-5 border my-4 rounded-lg shadow-md light:shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-900">
-		<h3 class="text-2xl font-bold"><a :href="site">{{ company }}</a></h3>
+		<h3 class="text-2xl font-bold"><a class="hover:underline" :href="site">{{ company }}</a></h3>
 		<div class="text-gray-700 dark:text-gray-200">
 			<p class="mt-1.5 float-left">{{ position }}</p>
 			<p class="mt-1.5 float-right text-right">{{ start }} to {{ end }}</p>

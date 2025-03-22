@@ -20,7 +20,7 @@ const setColorTheme = (newTheme: Theme) => {
 	<Disclosure as="nav"
 		class="fixed w-full bg-white dark:bg-zinc-800 shadow-md z-50 opacity-100 dark:shadow-zinc-900"
 		v-slot="{ open }">
-		<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="relative flex h-16 items-center justify-between">
 				<div class="flex flex-1 items-center justify-start sm:items-stretch">
 					<div class="flex flex-shrink-0 items-center">
@@ -30,7 +30,7 @@ const setColorTheme = (newTheme: Theme) => {
 					<div class="hidden sm:ml-6 sm:block">
 						<div class="flex space-x-4">
 							<a v-for="item in navigation" :key="item.name" :href="item.href"
-								:class="[item.current ? 'text-sky-500' : 'text-sky-500 hover:bg-sky-50 dark:hover:bg-zinc-700', 'rounded-md px-3 py-2 text-sm font-bold']"
+								:class="[item.current ? 'text-sky-500' : 'text-sky-500 hover:bg-sky-50 dark:hover:bg-zinc-700', 'rounded-md px-3 py-2 text-base font-bold']"
 								:aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
