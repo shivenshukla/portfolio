@@ -18,7 +18,7 @@ const projects = [
 <template>
 	<section class="pt-5 pb-10">
 		<h1 class="text-6xl font-bold mt-20">Shiven Shukla</h1>
-		<p class="mt-1.5 text-lg text-gray-700 dark:text-gray-200">Software developer based in Vancouver, BC</p>
+		<p class="mt-1.5 text-lg text-gray-700 dark:text-gray-200">Software developer at Spare</p>
 		<div class="flex flex-row gap-4 my-4">
 			<a v-for="link in links" :key="link.name" :href="link.href">
 				<Icon :name="link.icon" size="2.75rem" class="text-sky-500 hover:text-sky-400 drop-shadow-md" />
