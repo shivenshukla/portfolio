@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { Bars3Icon, XMarkIcon, LightBulbIcon } from '@heroicons/vue/24/outline'
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
 
 const route = { name: 'index' };
 
 const navigation = [
-	// { name: 'About', href: '#about', current: route.name == 'about' },
 	{ name: 'Experience', href: '#experience', current: route.name == 'experience' },
 	{ name: 'Projects', href: '#projects', current: route.name == 'projects' },
 ]
@@ -40,7 +39,8 @@ const setColorTheme = (newTheme: Theme) => {
 					<div class="inset-y-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 						<button class="ml-6 text-sky-500 p-2 hover:rounded-full hover:bg-sky-50 dark:hover:bg-zinc-700"
 							@click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')">
-							<LightBulbIcon class="h-6 w-6" />
+							<SunIcon v-if="$colorMode.preference == 'light'" class="h-6 w-6" />
+							<MoonIcon v-else class="h-6 w-6" />
 						</button>
 					</div>
 					<div class="inset-y-0 flex items-center sm:hidden">
