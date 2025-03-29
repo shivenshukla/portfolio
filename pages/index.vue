@@ -4,7 +4,7 @@ const links = [
 	{ name: 'LinkedIn', href: 'https://www.linkedin.com/in/shiven-shukla', icon: 'entypo-social:linkedin-with-circle' }
 ]
 const experiences = [
-	{ company: 'Spare', site: 'https://spare.com', position: 'Junior Software Developer', start: 'April 2025', end: 'Present', skills: ['TypeScript'] },
+	{ company: 'Spare', site: 'https://spare.com', position: 'Junior Software Developer', start: 'Apr 2025', end: 'Present', skills: ['TypeScript'] },
 	{ company: 'Planview', site: 'https://www.planview.com', position: 'Junior Software Engineer', start: 'May', end: 'Dec 2023', skills: ['Java', 'GitHub Actions'] },
 	{ company: 'Calabrio', site: 'https://www.calabrio.com', position: 'Software Engineer Intern', start: 'Jan', end: 'Aug 2022', skills: ['Java', 'AWS', 'Azure Pipelines'] }
 ]
