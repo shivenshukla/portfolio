@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@iconify-json/entypo-social": "1.2.3",
     "@nuxt/icon": "2.2.2",
     "@nuxtjs/color-mode": "4.0.0",
     "@nuxtjs/tailwindcss": "6.14.0",

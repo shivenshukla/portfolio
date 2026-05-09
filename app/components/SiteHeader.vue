@@ -37,11 +37,16 @@ const setColorTheme = (newTheme: Theme) => {
 				</div>
 				<div class="flex">
 					<div class="inset-y-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-						<button class="ml-6 text-sky-500 p-2 hover:rounded-full hover:bg-sky-50 dark:hover:bg-zinc-700"
-							@click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')">
-							<SunIcon v-if="$colorMode.preference == 'light'" class="h-6 w-6" />
-							<MoonIcon v-else class="h-6 w-6" />
-						</button>
+						<ClientOnly>
+							<button class="ml-6 text-sky-500 p-2 hover:rounded-full hover:bg-sky-50 dark:hover:bg-zinc-700"
+								@click="setColorTheme($colorMode.value === 'dark' ? 'light' : 'dark')">
+								<SunIcon v-if="$colorMode.value === 'dark'" class="h-6 w-6" />
+								<MoonIcon v-else class="h-6 w-6" />
+							</button>
+							<template #fallback>
+								<div class="h-10 w-10 ml-6"></div>
+							</template>
+						</ClientOnly>
 					</div>
 					<div class="inset-y-0 flex items-center sm:hidden">
 						<DisclosureButton
