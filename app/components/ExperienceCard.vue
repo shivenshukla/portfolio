@@ -1,29 +1,38 @@
 <script setup>
 defineProps({
-	site: { type: String, required: true },
-	company: { type: String, required: true },
-	position: { type: String, required: true },
-	start: { type: String, required: true },
-	end: { type: String, required: true },
-	skills: { type: Array, required: true },
+    site: { type: String, required: true },
+    company: { type: String, required: true },
+    position: { type: String, required: true },
+    start: { type: String, required: true },
+    end: { type: String, required: true },
+    skills: { type: Array, required: true },
 })
 </script>
 
 <template>
-	<div class="p-5 border my-4 rounded-lg shadow-md shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-900">
-		<h3 class="text-2xl font-bold"><a class="hover:underline" :href="site">{{ company }}</a></h3>
-		<div class="text-gray-700 dark:text-gray-200">
-			<p class="mt-1.5 sm:float-left">{{ position }}</p>
-			<p class="mt-1.5 sm:float-right sm:text-right">{{ start }} to {{ end }}</p>
-		</div>
-		<div class="clear-both flex flex-none pt-6">
-			<p
-				v-for="(item, index) in skills"
-				:key="index"
-				class="mr-2 px-2 py-0.5 rounded-md bg-sky-100 dark:bg-zinc-700 text-sky-700 dark:text-gray-200 font-semibold"
-			>
-				{{ item }}
-			</p>
-		</div>
-	</div>
+    <div class="p-5 border my-4 rounded-lg shadow-md shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-900">
+        <h3 class="text-2xl font-bold">
+            <a
+                class="hover:underline"
+                :href="site"
+            >{{ company }}</a>
+        </h3>
+        <div class="text-gray-700 dark:text-gray-200">
+            <p class="mt-1.5 sm:float-left">
+                {{ position }}
+            </p>
+            <p class="mt-1.5 sm:float-right sm:text-right">
+                {{ start }} to {{ end }}
+            </p>
+        </div>
+        <div class="clear-both flex flex-none pt-6">
+            <p
+                v-for="(item, index) in skills"
+                :key="index"
+                class="mr-2 px-2 py-0.5 rounded-md bg-sky-100 dark:bg-zinc-700 text-sky-700 dark:text-gray-200 font-semibold"
+            >
+                {{ item }}
+            </p>
+        </div>
+    </div>
 </template>
