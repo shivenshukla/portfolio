@@ -2,7 +2,7 @@
 	<Head>
 		<Title>Shiven Shukla</Title>
 	</Head>
-	<body class="dark:bg-zinc-800">
+	<body class="bg-white dark:bg-zinc-800">
 		<main class="grid min-h-screen place-items-center bg-white dark:bg-zinc-800 px-6 py-24 sm:py-32 lg:px-8">
 			<div class="text-center">
 				<p class="text-9xl font-bold text-sky-500">404</p>

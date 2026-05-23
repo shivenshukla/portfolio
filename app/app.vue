@@ -16,5 +16,10 @@
 <style>
 html {
   scroll-behavior: smooth;
+  background-color: #ffffff; /* white */
+}
+
+html.dark {
+  background-color: #27272a; /* zinc-800 */
 }
 </style>
