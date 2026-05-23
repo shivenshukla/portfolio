@@ -16,6 +16,7 @@ const projects = [
 </script>
 
 <template>
+	<div>
 	<section class="pt-5 pb-10">
 		<h1 class="text-6xl font-bold mt-20">Shiven Shukla</h1>
 		<p class="mt-1.5 text-lg text-gray-700 dark:text-gray-200">Software developer at Spare</p>
@@ -28,18 +29,32 @@ const projects = [
 	<section class="pb-10">
 		<div class="md:w-3/4 relative">
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">Experience</h2>
-			<a style="top: -75px; position: absolute;" name="experience"></a>
+			<a style="top: -75px; position: absolute;" name="experience"/>
 		</div>
-		<ExperienceCard v-for="experience in experiences" :key="experience.company" :company="experience.company"
-			:site="experience.site" :position="experience.position" :start="experience.start" :end="experience.end"
-			:skills="experience.skills" />
+		<ExperienceCard
+			v-for="experience in experiences"
+			:key="experience.company"
+			:company="experience.company"
+			:site="experience.site"
+			:position="experience.position"
+			:start="experience.start"
+			:end="experience.end"
+			:skills="experience.skills"
+		/>
 	</section>
 	<section class="pb-10">
 		<div class="md:w-3/4 relative">
 			<h2 class="text-3xl font-bold mt-8 text-sky-500">Projects</h2>
-			<a style="top: -75px; position: absolute;" name="projects"></a>
+			<a style="top: -75px; position: absolute;" name="projects"/>
 		</div>
-		<ProjectCard v-for="project in projects" :key="project.name" :name="project.name" :code="project.code"
-			:description="project.description" :skills="project.skills" />
+		<ProjectCard
+			v-for="project in projects"
+			:key="project.name"
+			:name="project.name"
+			:code="project.code"
+			:description="project.description"
+			:skills="project.skills"
+		/>
 	</section>
+	</div>
 </template>

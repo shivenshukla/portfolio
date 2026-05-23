@@ -1,9 +1,9 @@
 <script setup>
 defineProps({
-	name: String,
-	code: String,
-	description: String,
-	skills: Array
+	name: { type: String, required: true },
+	code: { type: String, required: true },
+	description: { type: String, required: true },
+	skills: { type: Array, required: true },
 })
 </script>
 
@@ -12,8 +12,13 @@ defineProps({
 		<h3 class="text-2xl font-bold"><a class="hover:underline" :href="code">{{ name }}</a></h3>
 		<p class="mt-1.5 text-gray-700 dark:text-gray-200">{{ description }}</p>
 		<div class="flex flex-none mt-6">
-			<p v-for="(item, index) in skills" :key="index"
-				class="mr-2 px-2 py-0.5 rounded-md bg-sky-100 dark:bg-zinc-700 text-sky-700 dark:text-gray-200 font-semibold">{{ item }}</p>
+			<p
+				v-for="(item, index) in skills"
+				:key="index"
+				class="mr-2 px-2 py-0.5 rounded-md bg-sky-100 dark:bg-zinc-700 text-sky-700 dark:text-gray-200 font-semibold"
+			>
+				{{ item }}
+			</p>
 		</div>
 	</div>
 </template>

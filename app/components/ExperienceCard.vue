@@ -1,11 +1,11 @@
 <script setup>
 defineProps({
-	site: String,
-	company: String,
-	position: String,
-	start: String,
-	end: String,
-	skills: Array
+	site: { type: String, required: true },
+	company: { type: String, required: true },
+	position: { type: String, required: true },
+	start: { type: String, required: true },
+	end: { type: String, required: true },
+	skills: { type: Array, required: true },
 })
 </script>
 
@@ -17,8 +17,13 @@ defineProps({
 			<p class="mt-1.5 sm:float-right sm:text-right">{{ start }} to {{ end }}</p>
 		</div>
 		<div class="clear-both flex flex-none pt-6">
-			<p v-for="(item, index) in skills" :key="index"
-				class="mr-2 px-2 py-0.5 rounded-md bg-sky-100 dark:bg-zinc-700 text-sky-700 dark:text-gray-200 font-semibold">{{ item }}</p>
+			<p
+				v-for="(item, index) in skills"
+				:key="index"
+				class="mr-2 px-2 py-0.5 rounded-md bg-sky-100 dark:bg-zinc-700 text-sky-700 dark:text-gray-200 font-semibold"
+			>
+				{{ item }}
+			</p>
 		</div>
 	</div>
 </template>
