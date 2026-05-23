@@ -1,8 +1,8 @@
 ## Description
-Please include a summary of the change.
+_Please include a summary of the change._
 
 ## Type of change
-Please select one option.
+_Please select one option._
 
 - [ ] New feature
 - [ ] Bug fix
