@@ -6,11 +6,15 @@ export default defineNuxtConfig({
         '@nuxtjs/color-mode',
         '@nuxt/eslint',
         '@nuxt/a11y',
+        '@nuxt/hints',
     ],
     app: {
         head: {
             htmlAttrs: {
                 lang: 'en',
+            },
+            bodyAttrs: {
+                class: 'bg-white dark:bg-zinc-800',
             },
         },
     },
@@ -33,6 +37,17 @@ export default defineNuxtConfig({
             stylistic: {
                 indent: 4,
             },
+        },
+    },
+    hints: {
+        // Dev-only (module no-ops in production builds)
+        devtools: true,
+        features: {
+            webVitals: true,
+            hydration: true,
+            lazyLoad: true,
+            thirdPartyScripts: true,
+            htmlValidate: true,
         },
     },
 })
