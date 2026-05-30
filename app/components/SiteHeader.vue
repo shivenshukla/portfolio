@@ -26,15 +26,21 @@ const setColorTheme = (newTheme: Theme) => {
             <div class="relative flex h-16 items-center justify-between">
                 <div class="flex flex-1 items-center justify-start sm:items-stretch">
                     <div class="flex flex-shrink-0 items-center">
-                        <a href="#"><img
+                        <a
+                            href="#"
+                            aria-label="Home"
+                        ><img
                             class="block h-8 w-auto lg:hidden"
                             src="~/assets/images/icon.png"
-                            alt="S"
+                            alt=""
                         ></a>
-                        <a href="#"><img
+                        <a
+                            href="#"
+                            aria-label="Home"
+                        ><img
                             class="hidden h-8 w-auto lg:block"
                             src="~/assets/images/icon.png"
-                            alt="S"
+                            alt=""
                         ></a>
                     </div>
                     <div class="hidden sm:ml-6 sm:block">
@@ -55,7 +61,9 @@ const setColorTheme = (newTheme: Theme) => {
                     <div class="inset-y-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                         <ClientOnly>
                             <button
+                                type="button"
                                 class="ml-6 text-sky-500 p-2 hover:rounded-full hover:bg-sky-50 dark:hover:bg-zinc-700"
+                                :aria-label="$colorMode.value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
                                 @click="setColorTheme($colorMode.value === 'dark' ? 'light' : 'dark')"
                             >
                                 <SunIcon
