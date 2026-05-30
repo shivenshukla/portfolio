@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@iconify-json/entypo-social": "1.2.3",
+    "@nuxt/a11y": "1.0.0-alpha.1",
     "@nuxt/eslint": "1.15.2",
     "@nuxt/icon": "2.2.2",
     "@nuxt/test-utils": "4.0.3",

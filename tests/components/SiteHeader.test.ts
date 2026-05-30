@@ -19,10 +19,12 @@ describe('SiteHeader', () => {
     it('renders navigation links and header structure', async () => {
         const wrapper = await mountSuspended(SiteHeader)
 
-        // Verify logo image alt text
+        // Decorative logo; accessible name comes from the home link
+        const homeLinks = wrapper.findAll('a[aria-label="Home"]')
+        expect(homeLinks.length).toBe(2)
         const logos = wrapper.findAll('img')
         expect(logos.length).toBeGreaterThan(0)
-        expect(logos[0].attributes('alt')).toBe('S')
+        expect(logos[0].attributes('alt')).toBe('')
 
         // Verify header navigation options
         expect(wrapper.text()).toContain('Experience')

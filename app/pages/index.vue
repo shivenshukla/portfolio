@@ -29,11 +29,13 @@ const projects = [
                     v-for="link in links"
                     :key="link.name"
                     :href="link.href"
+                    :aria-label="link.name"
                 >
                     <Icon
                         :name="link.icon"
                         size="2.75rem"
                         class="text-sky-500 hover:text-sky-400 drop-shadow-md"
+                        aria-hidden="true"
                     />
                 </a>
             </div>
@@ -43,9 +45,9 @@ const projects = [
                 <h2 class="text-3xl font-bold mt-8 text-sky-500">
                     Experience
                 </h2>
-                <a
+                <div
+                    id="experience"
                     style="top: -75px; position: absolute;"
-                    name="experience"
                 />
             </div>
             <ExperienceCard
@@ -64,9 +66,9 @@ const projects = [
                 <h2 class="text-3xl font-bold mt-8 text-sky-500">
                     Projects
                 </h2>
-                <a
+                <div
+                    id="projects"
                     style="top: -75px; position: absolute;"
-                    name="projects"
                 />
             </div>
             <ProjectCard
