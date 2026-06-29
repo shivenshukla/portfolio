@@ -17,27 +17,52 @@ const projects = [
 
 <template>
     <div>
-        <section class="pt-5 pb-10">
-            <h1 class="text-6xl font-bold mt-20">
-                Shiven Shukla
-            </h1>
-            <p class="mt-1.5 text-lg text-gray-700 dark:text-gray-200">
-                Software developer at Spare
-            </p>
-            <div class="flex flex-row gap-4 my-4">
-                <a
-                    v-for="link in links"
-                    :key="link.name"
-                    :href="link.href"
-                    :aria-label="link.name"
+        <section class="pt-5 pb-10 mt-20">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+                <img
+                    src="~/assets/images/profile.png"
+                    alt="Cartoon illustration of Shiven Shukla"
+                    class="h-36 w-36 sm:h-44 sm:w-44 rounded-full shrink-0"
                 >
-                    <Icon
-                        :name="link.icon"
-                        size="2.75rem"
-                        class="text-sky-500 hover:text-sky-400 drop-shadow-md"
-                        aria-hidden="true"
-                    />
-                </a>
+                <div>
+                    <h1 class="text-6xl font-bold">
+                        Shiven Shukla
+                    </h1>
+                    <p class="mt-1.5 text-lg text-gray-700 dark:text-gray-200">
+                        Software developer at Spare
+                    </p>
+                    <div class="flex flex-row gap-4 my-4">
+                        <a
+                            v-for="link in links"
+                            :key="link.name"
+                            :href="link.href"
+                            :aria-label="link.name"
+                        >
+                            <Icon
+                                :name="link.icon"
+                                size="3.25rem"
+                                class="text-sky-500 hover:text-sky-400 drop-shadow-md"
+                                aria-hidden="true"
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pb-10">
+            <div class="md:w-3/4 relative">
+                <h2 class="text-3xl font-bold mt-8 text-sky-500">
+                    About Me
+                </h2>
+                <div
+                    id="about"
+                    style="top: -75px; position: absolute;"
+                />
+            </div>
+            <div class="p-5 border my-4 rounded-lg shadow-md shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-900">
+                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
+                    Hi! I'm a software developer based in Vancouver, BC. I studied Computer Science at the University of British Columbia. Now I build AI agents at Spare.
+                </p>
             </div>
         </section>
         <section class="pb-10">

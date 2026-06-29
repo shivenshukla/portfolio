@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/vue/24/outli
 const route = { name: 'index' }
 
 const navigation = [
+    { name: 'About Me', href: '#about', current: route.name == 'about' },
     { name: 'Experience', href: '#experience', current: route.name == 'experience' },
     { name: 'Projects', href: '#projects', current: route.name == 'projects' },
 ]
