@@ -4,9 +4,31 @@ const links = [
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/shiven-shukla', icon: 'entypo-social:linkedin-with-circle' },
 ]
 const experiences = [
-    { company: 'Spare', site: 'https://spare.com', position: 'Software Developer', start: 'Apr 2025', end: 'Present', skills: ['TypeScript'] },
-    { company: 'Planview', site: 'https://www.planview.com', position: 'Junior Software Engineer', start: 'May', end: 'Dec 2023', skills: ['Java', 'GitHub Actions'] },
-    { company: 'Calabrio', site: 'https://www.calabrio.com', position: 'Software Engineer Intern', start: 'Jan', end: 'Aug 2022', skills: ['Java', 'AWS', 'Azure Pipelines'] },
+    {
+        company: 'Spare',
+        site: 'https://spare.com',
+        roles: [
+            { position: 'Intermediate Software Developer', start: 'Apr 2026', end: 'Present' },
+            { position: 'Junior Software Developer', start: 'Apr 2025', end: 'Mar 2026' },
+        ],
+        skills: ['TypeScript'],
+    },
+    {
+        company: 'Planview',
+        site: 'https://www.planview.com',
+        roles: [
+            { position: 'Junior Software Engineer', start: 'May', end: 'Dec 2023' },
+        ],
+        skills: ['Java', 'GitHub Actions'],
+    },
+    {
+        company: 'Calabrio',
+        site: 'https://www.calabrio.com',
+        roles: [
+            { position: 'Software Engineer Intern', start: 'Jan', end: 'Aug 2022' },
+        ],
+        skills: ['Java', 'AWS', 'Azure Pipelines'],
+    },
 ]
 
 const projects = [
@@ -28,10 +50,7 @@ const projects = [
                     <h1 class="text-6xl font-bold">
                         Shiven Shukla
                     </h1>
-                    <p class="mt-1.5 text-lg text-neutral-600 dark:text-neutral-400">
-                        Software developer at Spare
-                    </p>
-                    <div class="flex flex-row gap-4 my-4">
+                    <div class="flex flex-row gap-4 mt-4">
                         <a
                             v-for="link in links"
                             :key="link.name"
@@ -80,9 +99,7 @@ const projects = [
                 :key="experience.company"
                 :company="experience.company"
                 :site="experience.site"
-                :position="experience.position"
-                :start="experience.start"
-                :end="experience.end"
+                :roles="experience.roles"
                 :skills="experience.skills"
             />
         </section>

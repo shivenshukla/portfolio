@@ -2,9 +2,7 @@
 defineProps({
     site: { type: String, required: true },
     company: { type: String, required: true },
-    position: { type: String, required: true },
-    start: { type: String, required: true },
-    end: { type: String, required: true },
+    roles: { type: Array, required: true },
     skills: { type: Array, required: true },
 })
 </script>
@@ -17,19 +15,24 @@ defineProps({
                 :href="site"
             >{{ company }}</a>
         </h3>
-        <div class="text-neutral-600 dark:text-neutral-400">
-            <p class="mt-1.5 sm:float-left">
-                {{ position }}
-            </p>
-            <p class="mt-1.5 sm:float-right sm:text-right">
-                {{ start }} to {{ end }}
-            </p>
+        <div
+            v-for="(role, index) in roles"
+            :key="index"
+            class="text-neutral-600 dark:text-neutral-400"
+            :class="index === 0 ? 'mt-1.5' : 'mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700'"
+        >
+            <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between">
+                <p>{{ role.position }}</p>
+                <p class="shrink-0 sm:text-right">
+                    {{ role.start }} to {{ role.end }}
+                </p>
+            </div>
         </div>
-        <div class="clear-both flex flex-none pt-6">
+        <div class="flex flex-none flex-wrap gap-2 pt-6">
             <p
-                v-for="(item, index) in skills"
-                :key="index"
-                class="mr-2 px-2 py-0.5 rounded-md bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 font-semibold"
+                v-for="(item, skillIndex) in skills"
+                :key="skillIndex"
+                class="px-2 py-0.5 rounded-md bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 font-semibold"
             >
                 {{ item }}
             </p>
