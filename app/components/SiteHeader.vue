@@ -47,18 +47,25 @@ const setColorTheme = (newTheme: Theme) => {
                     <ClientOnly>
                         <button
                             type="button"
-                            class="text-neutral-600 dark:text-neutral-400 p-2 rounded-md hover:text-neutral-950 dark:hover:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                            class="inline-flex h-10 w-10 items-center justify-center overflow-hidden text-neutral-600 dark:text-neutral-400 rounded-md hover:text-neutral-950 dark:hover:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800"
                             :aria-label="$colorMode.value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
                             @click="setColorTheme($colorMode.value === 'dark' ? 'light' : 'dark')"
                         >
-                            <SunIcon
-                                v-if="$colorMode.value === 'dark'"
-                                class="h-6 w-6"
-                            />
-                            <MoonIcon
-                                v-else
-                                class="h-6 w-6"
-                            />
+                            <Transition
+                                name="theme-icon"
+                                mode="out-in"
+                            >
+                                <SunIcon
+                                    v-if="$colorMode.value === 'dark'"
+                                    key="sun"
+                                    class="h-6 w-6"
+                                />
+                                <MoonIcon
+                                    v-else
+                                    key="moon"
+                                    class="h-6 w-6"
+                                />
+                            </Transition>
                         </button>
                         <template #fallback>
                             <div class="h-10 w-10" />
@@ -101,3 +108,23 @@ const setColorTheme = (newTheme: Theme) => {
         </DisclosurePanel>
     </Disclosure>
 </template>
+
+<style scoped>
+.theme-icon-enter-active,
+.theme-icon-leave-active {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.theme-icon-enter-from,
+.theme-icon-leave-to {
+    opacity: 0;
+    transform: translateY(0.5rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-icon-enter-active,
+    .theme-icon-leave-active {
+        transition: none;
+    }
+}
+</style>
