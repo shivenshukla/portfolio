@@ -8,28 +8,42 @@ describe('ExperienceCard', () => {
             props: {
                 company: 'Acme Corporation',
                 site: 'https://example.com',
-                position: 'Rocket Scientist',
-                start: 'Jan 2000',
-                end: 'Dec 2000',
+                roles: [
+                    { position: 'Rocket Scientist', start: 'Jan 2000', end: 'Dec 2000' },
+                ],
                 skills: ['Anvil Dropping', 'Bird Catching'],
             },
         })
 
-        // Verify company name and position
         expect(wrapper.text()).toContain('Acme Corporation')
         expect(wrapper.text()).toContain('Rocket Scientist')
-
-        // Verify dates render correctly
         expect(wrapper.text()).toContain('Jan 2000 to Dec 2000')
 
-        // Verify link is present and correct
         const link = wrapper.find('a')
         expect(link.exists()).toBe(true)
         expect(link.attributes('href')).toBe('https://example.com')
         expect(link.text()).toBe('Acme Corporation')
 
-        // Verify skills are listed
         expect(wrapper.text()).toContain('Anvil Dropping')
         expect(wrapper.text()).toContain('Bird Catching')
+    })
+
+    it('renders multiple roles at the same company', async () => {
+        const wrapper = await mountSuspended(ExperienceCard, {
+            props: {
+                company: 'Acme Corporation',
+                site: 'https://example.com',
+                roles: [
+                    { position: 'Senior Rocket Scientist', start: 'Jan 2001', end: 'Present' },
+                    { position: 'Rocket Scientist', start: 'Jan 2000', end: 'Jan 2001' },
+                ],
+                skills: ['Anvil Dropping'],
+            },
+        })
+
+        expect(wrapper.text()).toContain('Senior Rocket Scientist')
+        expect(wrapper.text()).toContain('Jan 2001 to Present')
+        expect(wrapper.text()).toContain('Rocket Scientist')
+        expect(wrapper.text()).toContain('Jan 2000 to Jan 2001')
     })
 })

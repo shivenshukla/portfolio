@@ -19,12 +19,11 @@ describe('SiteHeader', () => {
     it('renders navigation links and header structure', async () => {
         const wrapper = await mountSuspended(SiteHeader)
 
-        // Decorative logo; accessible name comes from the home link
-        const homeLinks = wrapper.findAll('a[aria-label="Home"]')
-        expect(homeLinks.length).toBe(2)
-        const logos = wrapper.findAll('img')
-        expect(logos.length).toBeGreaterThan(0)
-        expect(logos[0].attributes('alt')).toBe('')
+        // Verify home link and header navigation options
+        expect(wrapper.text()).toContain('Shiven Shukla')
+        const homeLink = wrapper.find('a[aria-label="Home"]')
+        expect(homeLink.exists()).toBe(true)
+        expect(homeLink.attributes('href')).toBe('#')
 
         // Verify header navigation options
         expect(wrapper.text()).toContain('About Me')

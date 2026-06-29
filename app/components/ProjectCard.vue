@@ -8,21 +8,21 @@ defineProps({
 </script>
 
 <template>
-    <div class="p-5 border my-4 rounded-lg shadow-md shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-900">
+    <div class="p-5 bg-neutral-100 dark:bg-neutral-900 my-4 rounded-xl">
         <h3 class="text-2xl font-bold">
             <a
                 class="hover:underline"
                 :href="code"
             >{{ name }}</a>
         </h3>
-        <p class="mt-1.5 text-gray-700 dark:text-gray-200">
+        <p class="mt-1.5 text-neutral-600 dark:text-neutral-400">
             {{ description }}
         </p>
         <div class="flex flex-none mt-6">
             <p
                 v-for="(item, index) in skills"
                 :key="index"
-                class="mr-2 px-2 py-0.5 rounded-md bg-sky-100 dark:bg-zinc-700 text-sky-700 dark:text-gray-200 font-semibold"
+                class="mr-2 px-2 py-0.5 rounded-md bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 font-semibold"
             >
                 {{ item }}
             </p>
