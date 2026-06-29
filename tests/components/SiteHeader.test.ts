@@ -27,12 +27,14 @@ describe('SiteHeader', () => {
         expect(logos[0].attributes('alt')).toBe('')
 
         // Verify header navigation options
+        expect(wrapper.text()).toContain('About Me')
         expect(wrapper.text()).toContain('Experience')
         expect(wrapper.text()).toContain('Projects')
 
         // Verify the href values of the navigation links
         const links = wrapper.findAll('a')
         const hrefs = links.map(link => link.attributes('href'))
+        expect(hrefs).toContain('#about')
         expect(hrefs).toContain('#experience')
         expect(hrefs).toContain('#projects')
     })
