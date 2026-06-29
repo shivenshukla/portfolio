@@ -15,9 +15,14 @@
 html {
     scroll-behavior: smooth;
     background-color: #ffffff; /* white */
+    overscroll-behavior-y: none;
 }
 
 html.dark {
     background-color: #27272a; /* zinc-800 */
+}
+
+body {
+    overscroll-behavior-y: none;
 }
 </style>
