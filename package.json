@@ -7,8 +7,6 @@
   },
   "scripts": {
     "build": "nuxt build",
-    "build:netlify": "NETLIFY=true nuxt build",
-    "test:netlify-ssr": "node scripts/test-netlify-ssr.mjs",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

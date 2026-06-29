@@ -29,7 +29,4 @@ jobs:
         run: npm test
 
       - name: Build
-        run: npm run build:netlify
-
-      - name: Test Netlify SSR
-        run: npm run test:netlify-ssr
+        run: npm run build
