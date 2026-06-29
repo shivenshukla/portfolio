@@ -14,8 +14,14 @@ export default defineNuxtConfig({
                 lang: 'en',
             },
             bodyAttrs: {
-                class: 'bg-white dark:bg-zinc-800',
+                class: 'bg-white dark:bg-neutral-950 text-neutral-950 dark:text-neutral-50',
             },
+            link: [
+                { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+                { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+                { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+                { rel: 'shortcut icon', href: '/favicon.ico' },
+            ],
         },
     },
     colorMode: {

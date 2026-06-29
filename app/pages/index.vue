@@ -28,7 +28,7 @@ const projects = [
                     <h1 class="text-6xl font-bold">
                         Shiven Shukla
                     </h1>
-                    <p class="mt-1.5 text-lg text-gray-700 dark:text-gray-200">
+                    <p class="mt-1.5 text-lg text-neutral-600 dark:text-neutral-400">
                         Software developer at Spare
                     </p>
                     <div class="flex flex-row gap-4 my-4">
@@ -41,7 +41,7 @@ const projects = [
                             <Icon
                                 :name="link.icon"
                                 size="3.25rem"
-                                class="text-sky-500 hover:text-sky-400 drop-shadow-md"
+                                class="text-neutral-950 dark:text-neutral-50 hover:opacity-70"
                                 aria-hidden="true"
                             />
                         </a>
@@ -51,7 +51,7 @@ const projects = [
         </section>
         <section class="pb-10">
             <div class="md:w-3/4 relative">
-                <h2 class="text-3xl font-bold mt-8 text-sky-500">
+                <h2 class="text-3xl font-bold mt-8">
                     About Me
                 </h2>
                 <div
@@ -59,15 +59,15 @@ const projects = [
                     style="top: -75px; position: absolute;"
                 />
             </div>
-            <div class="p-5 border my-4 rounded-lg shadow-md shadow-gray-100 dark:shadow-zinc-900 dark:border-zinc-900">
-                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
+            <div class="p-5 bg-neutral-100 dark:bg-neutral-900 my-4 rounded-xl">
+                <p class="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
                     Hi! I'm a software developer based in Vancouver, BC. I studied Computer Science at the University of British Columbia. Now I build AI agents at Spare.
                 </p>
             </div>
         </section>
         <section class="pb-10">
             <div class="md:w-3/4 relative">
-                <h2 class="text-3xl font-bold mt-8 text-sky-500">
+                <h2 class="text-3xl font-bold mt-8">
                     Experience
                 </h2>
                 <div
@@ -88,7 +88,7 @@ const projects = [
         </section>
         <section class="pb-10">
             <div class="md:w-3/4 relative">
-                <h2 class="text-3xl font-bold mt-8 text-sky-500">
+                <h2 class="text-3xl font-bold mt-8">
                     Projects
                 </h2>
                 <div

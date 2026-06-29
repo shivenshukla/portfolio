@@ -2,7 +2,7 @@
     <Head>
         <Title>Shiven Shukla</Title>
     </Head>
-    <div class="flex flex-col min-h-screen bg-white dark:bg-zinc-800 dark:text-white">
+    <div class="flex flex-col min-h-screen bg-white dark:bg-neutral-950 text-neutral-950 dark:text-neutral-50">
         <SiteHeader />
         <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grow items-start w-full">
             <NuxtPage />
@@ -19,7 +19,7 @@ html {
 }
 
 html.dark {
-    background-color: #27272a; /* zinc-800 */
+    background-color: #0a0a0a; /* neutral-950 */
 }
 
 body {

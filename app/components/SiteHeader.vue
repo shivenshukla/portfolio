@@ -21,69 +21,52 @@ const setColorTheme = (newTheme: Theme) => {
     <Disclosure
         v-slot="{ open }"
         as="nav"
-        class="fixed w-full bg-white dark:bg-zinc-800 shadow-md z-50 opacity-100 dark:shadow-zinc-900"
+        class="fixed w-full bg-white dark:bg-neutral-950 z-50"
     >
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
-                <div class="flex flex-1 items-center justify-start sm:items-stretch">
-                    <div class="flex flex-shrink-0 items-center">
+                <a
+                    href="#"
+                    class="text-lg sm:text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 shrink-0"
+                    aria-label="Home"
+                >
+                    Shiven Shukla
+                </a>
+                <div class="flex items-center gap-1">
+                    <div class="hidden sm:flex sm:gap-1">
                         <a
-                            href="#"
-                            aria-label="Home"
-                        ><img
-                            class="block h-8 w-auto lg:hidden"
-                            src="~/assets/images/icon.png"
-                            alt=""
-                        ></a>
-                        <a
-                            href="#"
-                            aria-label="Home"
-                        ><img
-                            class="hidden h-8 w-auto lg:block"
-                            src="~/assets/images/icon.png"
-                            alt=""
-                        ></a>
+                            v-for="item in navigation"
+                            :key="item.name"
+                            :href="item.href"
+                            :class="[item.current ? 'text-neutral-950 dark:text-neutral-50' : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800', 'rounded-md px-3 py-2 text-sm font-medium']"
+                            :aria-current="item.current ? 'page' : undefined"
+                        >
+                            {{ item.name }}
+                        </a>
                     </div>
-                    <div class="hidden sm:ml-6 sm:block">
-                        <div class="flex space-x-4">
-                            <a
-                                v-for="item in navigation"
-                                :key="item.name"
-                                :href="item.href"
-                                :class="[item.current ? 'text-sky-500' : 'text-sky-500 hover:bg-sky-50 dark:hover:bg-zinc-700', 'rounded-md px-3 py-2 text-base font-bold']"
-                                :aria-current="item.current ? 'page' : undefined"
-                            >
-                                {{ item.name }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="inset-y-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        <ClientOnly>
-                            <button
-                                type="button"
-                                class="ml-6 text-sky-500 p-2 hover:rounded-full hover:bg-sky-50 dark:hover:bg-zinc-700"
-                                :aria-label="$colorMode.value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-                                @click="setColorTheme($colorMode.value === 'dark' ? 'light' : 'dark')"
-                            >
-                                <SunIcon
-                                    v-if="$colorMode.value === 'dark'"
-                                    class="h-6 w-6"
-                                />
-                                <MoonIcon
-                                    v-else
-                                    class="h-6 w-6"
-                                />
-                            </button>
-                            <template #fallback>
-                                <div class="h-10 w-10 ml-6" />
-                            </template>
-                        </ClientOnly>
-                    </div>
-                    <div class="inset-y-0 flex items-center sm:hidden">
+                    <ClientOnly>
+                        <button
+                            type="button"
+                            class="text-neutral-600 dark:text-neutral-400 p-2 rounded-md hover:text-neutral-950 dark:hover:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                            :aria-label="$colorMode.value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+                            @click="setColorTheme($colorMode.value === 'dark' ? 'light' : 'dark')"
+                        >
+                            <SunIcon
+                                v-if="$colorMode.value === 'dark'"
+                                class="h-6 w-6"
+                            />
+                            <MoonIcon
+                                v-else
+                                class="h-6 w-6"
+                            />
+                        </button>
+                        <template #fallback>
+                            <div class="h-10 w-10" />
+                        </template>
+                    </ClientOnly>
+                    <div class="sm:hidden">
                         <DisclosureButton
-                            class="inline-flex items-center justify-center rounded-md p-2 text-sky-500 hover:bg-sky-50 dark:hover:bg-zinc-700"
+                            class="inline-flex items-center justify-center rounded-md p-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800"
                         >
                             <span class="sr-only">Open main menu</span>
                             <Bars3Icon
@@ -109,7 +92,7 @@ const setColorTheme = (newTheme: Theme) => {
                     :key="item.name"
                     as="a"
                     :href="item.href"
-                    :class="[item.current ? 'text-sky-500' : 'text-sky-500 hover:bg-sky-50 dark:hover:bg-zinc-700', 'block rounded-md px-3 py-2 text-base font-bold text-center']"
+                    :class="[item.current ? 'text-neutral-950 dark:text-neutral-50' : 'text-neutral-950 dark:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800', 'block rounded-md px-3 py-2 text-base font-bold text-center']"
                     :aria-current="item.current ? 'page' : undefined"
                 >
                     {{ item.name }}
