@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { defineComponent, onMounted, onUnmounted, ref, watch, type PropType } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
 
@@ -15,11 +16,80 @@ type Theme = 'light' | 'dark'
 const setColorTheme = (newTheme: Theme) => {
     useColorMode().preference = newTheme
 }
+
+function setBodyScrollLocked(locked: boolean) {
+    if (!import.meta.client) {
+        return
+    }
+
+    document.documentElement.style.overflow = locked ? 'hidden' : ''
+    document.body.style.overflow = locked ? 'hidden' : ''
+}
+
+function clearBodyScrollLock() {
+    if (!import.meta.client) {
+        return
+    }
+
+    document.documentElement.style.overflow = ''
+    document.body.style.overflow = ''
+}
+
+const MOBILE_MENU_MEDIA_QUERY = '(max-width: 639px)'
+
+const MobileMenuScrollLock = defineComponent({
+    props: {
+        menuOpen: { type: Boolean, required: true },
+        closeMenu: { type: Function as PropType<() => void>, default: undefined },
+    },
+    setup(props) {
+        const isMobileViewport = ref(false)
+
+        const syncScrollLock = () => {
+            setBodyScrollLocked(props.menuOpen && isMobileViewport.value)
+        }
+
+        watch(() => props.menuOpen, syncScrollLock)
+
+        onMounted(() => {
+            if (!import.meta.client) {
+                return
+            }
+
+            const mediaQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY)
+
+            const onViewportChange = () => {
+                const wasMobile = isMobileViewport.value
+                isMobileViewport.value = mediaQuery.matches
+
+                if (wasMobile && !mediaQuery.matches) {
+                    if (props.menuOpen) {
+                        props.closeMenu?.()
+                    }
+                    clearBodyScrollLock()
+                    return
+                }
+
+                syncScrollLock()
+            }
+
+            onViewportChange()
+            mediaQuery.addEventListener('change', onViewportChange)
+
+            onUnmounted(() => {
+                mediaQuery.removeEventListener('change', onViewportChange)
+                clearBodyScrollLock()
+            })
+        })
+
+        return () => null
+    },
+})
 </script>
 
 <template>
     <Disclosure
-        v-slot="{ open }"
+        v-slot="{ open, close }"
         as="nav"
         class="fixed w-full bg-white dark:bg-neutral-950 z-50"
     >
@@ -92,20 +162,37 @@ const setColorTheme = (newTheme: Theme) => {
             </div>
         </div>
 
-        <DisclosurePanel class="sm:hidden">
-            <div class="space-y-1 px-2 pb-3 pt-2">
-                <DisclosureButton
-                    v-for="item in navigation"
-                    :key="item.name"
-                    as="a"
-                    :href="item.href"
-                    :class="[item.current ? 'text-neutral-950 dark:text-neutral-50' : 'text-neutral-950 dark:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800', 'block rounded-md px-3 py-2 text-base font-bold text-center']"
-                    :aria-current="item.current ? 'page' : undefined"
-                >
-                    {{ item.name }}
-                </DisclosureButton>
-            </div>
-        </DisclosurePanel>
+        <MobileMenuScrollLock
+            :menu-open="open"
+            :close-menu="close"
+        />
+
+        <Transition name="mobile-backdrop">
+            <button
+                v-if="open"
+                type="button"
+                class="sm:hidden fixed inset-0 top-16 z-30 bg-neutral-950/20 dark:bg-black/50"
+                aria-label="Close main menu"
+                @click="close"
+            />
+        </Transition>
+
+        <Transition name="mobile-menu">
+            <DisclosurePanel class="sm:hidden fixed inset-x-0 top-16 bottom-0 z-40 overflow-hidden bg-white dark:bg-neutral-950">
+                <div class="mx-auto flex h-full w-full max-w-7xl flex-col overflow-y-auto overscroll-contain px-4 py-8 sm:px-6 lg:px-8">
+                    <DisclosureButton
+                        v-for="item in navigation"
+                        :key="item.name"
+                        as="a"
+                        :href="item.href"
+                        :class="[item.current ? 'text-neutral-950 dark:text-neutral-50' : 'text-neutral-950 dark:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800', 'block rounded-md py-4 text-2xl font-bold text-left']"
+                        :aria-current="item.current ? 'page' : undefined"
+                    >
+                        {{ item.name }}
+                    </DisclosureButton>
+                </div>
+            </DisclosurePanel>
+        </Transition>
     </Disclosure>
 </template>
 
@@ -121,9 +208,38 @@ const setColorTheme = (newTheme: Theme) => {
     transform: translateY(0.5rem);
 }
 
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+    transition: max-height 0.4s ease;
+}
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+    max-height: 0;
+}
+
+.mobile-menu-enter-to,
+.mobile-menu-leave-from {
+    max-height: calc(100dvh - 4rem);
+}
+
+.mobile-backdrop-enter-active,
+.mobile-backdrop-leave-active {
+    transition: opacity 0.4s ease;
+}
+
+.mobile-backdrop-enter-from,
+.mobile-backdrop-leave-to {
+    opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .theme-icon-enter-active,
-    .theme-icon-leave-active {
+    .theme-icon-leave-active,
+    .mobile-menu-enter-active,
+    .mobile-menu-leave-active,
+    .mobile-backdrop-enter-active,
+    .mobile-backdrop-leave-active {
         transition: none;
     }
 }
