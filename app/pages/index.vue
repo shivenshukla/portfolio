@@ -48,11 +48,7 @@ const cycleRoleTitle = () => {
     <div>
         <section class="pt-5 pb-10 mt-20">
             <div class="flex flex-col sm:flex-row sm:items-center gap-6">
-                <img
-                    src="~/assets/images/profile.png"
-                    alt="Cartoon illustration of Shiven Shukla"
-                    class="h-36 w-36 sm:h-44 sm:w-44 rounded-full shrink-0"
-                >
+                <ProfileAvatar />
                 <div>
                     <h1 class="text-6xl font-bold">
                         Shiven Shukla
