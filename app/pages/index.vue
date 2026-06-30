@@ -11,7 +11,7 @@ const experiences = [
             { position: 'Intermediate Software Developer', start: 'Apr 2026', end: 'Present' },
             { position: 'Junior Software Developer', start: 'Apr 2025', end: 'Mar 2026' },
         ],
-        skills: ['TypeScript'],
+        skills: ['TypeScript', 'OpenAI'],
     },
     {
         company: 'Planview',
@@ -32,8 +32,8 @@ const experiences = [
 ]
 
 const projects = [
-    { name: 'Portfolio', code: 'https://github.com/shivenshukla/portfolio', description: 'My personal website built in Vue using Nuxt.js and Tailwind CSS', skills: ['Vue', 'Nuxt.js', 'Tailwind CSS'] },
-    { name: 'Budget Manager', code: 'https://github.com/shivenshukla/budget-manager', description: 'A budget management application built in Java', skills: ['Java'] },
+    { name: 'Portfolio', code: 'https://github.com/shivenshukla/portfolio', description: 'My personal website to showcase my work and experience', skills: ['Vue', 'Nuxt', 'Tailwind CSS'] },
+    { name: 'Budget Manager', code: 'https://github.com/shivenshukla/budget-manager', description: 'A budgeting application to track income and expenses', skills: ['Java'] },
 ]
 </script>
 

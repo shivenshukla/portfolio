@@ -12,7 +12,9 @@ const fitFooterName = () => {
 
     const baseSize = 100
     text.style.fontSize = `${baseSize}px`
-    text.style.fontSize = `${baseSize * (available / text.scrollWidth)}px`
+    const fontSize = baseSize * (available / text.scrollWidth)
+    text.style.fontSize = `${fontSize}px`
+    wrap.style.height = `${fontSize * 0.82}px`
 }
 
 let resizeObserver: ResizeObserver | undefined
@@ -29,16 +31,16 @@ onUnmounted(() => resizeObserver?.disconnect())
 
 <template>
     <footer
-        class="mx-auto mt-20 w-full max-w-7xl px-4 sm:px-6 lg:px-8"
-        aria-label="Copyright Shiven Shukla 2026"
+        class="mx-auto mt-20 w-full max-w-7xl overflow-hidden px-4 sm:px-6 lg:px-8"
+        aria-label="Copyright Shiven Shukla"
     >
         <div
             ref="wrapRef"
-            class="footer-name-wrap w-full pt-2 pb-2"
+            class="footer-name-wrap w-full overflow-hidden"
         >
             <p
                 ref="textRef"
-                class="footer-name whitespace-nowrap font-sans font-bold leading-none select-none pointer-events-none text-white dark:text-neutral-950 [--outline:#d4d4d4] dark:[--outline:#525252]"
+                class="footer-name whitespace-nowrap font-sans font-bold leading-none select-none pointer-events-none text-neutral-200 dark:text-neutral-800"
             >
                 Shiven Shukla
             </p>
@@ -54,14 +56,5 @@ onUnmounted(() => resizeObserver?.disconnect())
 
 .footer-name {
     display: inline-block;
-    text-shadow:
-        -1px -1px 0 var(--outline),
-        0 -1px 0 var(--outline),
-        1px -1px 0 var(--outline),
-        -1px 0 0 var(--outline),
-        1px 0 0 var(--outline),
-        -1px 1px 0 var(--outline),
-        0 1px 0 var(--outline),
-        1px 1px 0 var(--outline);
 }
 </style>
