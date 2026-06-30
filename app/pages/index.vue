@@ -78,9 +78,18 @@ const projects = [
                     style="top: -75px; position: absolute;"
                 />
             </div>
-            <div class="p-5 bg-neutral-100 dark:bg-neutral-900 my-4 rounded-xl">
+            <div class="space-y-4 p-5 bg-neutral-100 dark:bg-neutral-900 my-4 rounded-xl">
                 <p class="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-                    Hi! I'm a software developer based in Vancouver, BC. I studied Computer Science at the University of British Columbia. Now I build AI agents at Spare.
+                    Hi!
+                </p>
+                <p class="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+                    I'm a software developer in Vancouver, BC with a background in computer science.
+                </p>
+                <p class="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+                    I started as a physics major at the University of British Columbia and switched to computer science after taking an introductory programming course which made me fall in love with coding.
+                </p>
+                <p class="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+                    I am passionate about building software that creates a positive impact. This led me to my current role at Spare where I develop AI agents to help individuals schedule their daily commutes.
                 </p>
             </div>
         </section>
