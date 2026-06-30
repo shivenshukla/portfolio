@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineComponent, onUnmounted, watch } from 'vue'
+import { defineComponent, onMounted, onUnmounted, ref, watch, type PropType } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
 
@@ -35,13 +35,53 @@ function clearBodyScrollLock() {
     document.body.style.overflow = ''
 }
 
+const MOBILE_MENU_MEDIA_QUERY = '(max-width: 639px)'
+
 const MobileMenuScrollLock = defineComponent({
     props: {
         menuOpen: { type: Boolean, required: true },
+        closeMenu: { type: Function as PropType<() => void>, default: undefined },
     },
     setup(props) {
-        watch(() => props.menuOpen, setBodyScrollLocked, { immediate: true })
-        onUnmounted(clearBodyScrollLock)
+        const isMobileViewport = ref(false)
+
+        const syncScrollLock = () => {
+            setBodyScrollLocked(props.menuOpen && isMobileViewport.value)
+        }
+
+        watch(() => props.menuOpen, syncScrollLock)
+
+        onMounted(() => {
+            if (!import.meta.client) {
+                return
+            }
+
+            const mediaQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY)
+
+            const onViewportChange = () => {
+                const wasMobile = isMobileViewport.value
+                isMobileViewport.value = mediaQuery.matches
+
+                if (wasMobile && !mediaQuery.matches) {
+                    if (props.menuOpen) {
+                        props.closeMenu?.()
+                    }
+                    clearBodyScrollLock()
+                    return
+                }
+
+                syncScrollLock()
+            }
+
+            onViewportChange()
+            mediaQuery.addEventListener('change', onViewportChange)
+
+            onUnmounted(() => {
+                mediaQuery.removeEventListener('change', onViewportChange)
+                clearBodyScrollLock()
+            })
+        })
+
         return () => null
     },
 })
@@ -122,7 +162,10 @@ const MobileMenuScrollLock = defineComponent({
             </div>
         </div>
 
-        <MobileMenuScrollLock :menu-open="open" />
+        <MobileMenuScrollLock
+            :menu-open="open"
+            :close-menu="close"
+        />
 
         <Transition name="mobile-backdrop">
             <button
