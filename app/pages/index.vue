@@ -35,6 +35,13 @@ const projects = [
     { name: 'Portfolio', code: 'https://github.com/shivenshukla/portfolio', description: 'My personal website to showcase my work and experience', skills: ['Vue', 'Nuxt', 'Tailwind CSS'] },
     { name: 'Budget Manager', code: 'https://github.com/shivenshukla/budget-manager', description: 'A budgeting application to track income and expenses', skills: ['Java'] },
 ]
+
+const roleTitles = ['software developer', 'software philomath']
+const roleTitleIndex = ref(0)
+
+const cycleRoleTitle = () => {
+    roleTitleIndex.value = (roleTitleIndex.value + 1) % roleTitles.length
+}
 </script>
 
 <template>
@@ -83,7 +90,24 @@ const projects = [
                     Hi!
                 </p>
                 <p class="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-                    I'm a software developer in Vancouver, BC with a background in computer science.
+                    I'm a
+                    <button
+                        type="button"
+                        class="role-title-button mx-1 inline-grid w-[11.125rem] cursor-pointer place-items-center overflow-hidden rounded-md border border-neutral-200 bg-white px-1 py-0.5 font-semibold text-neutral-950 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
+                        aria-label="Cycle role title"
+                        @click="cycleRoleTitle"
+                    >
+                        <Transition
+                            name="role-title"
+                            mode="out-in"
+                        >
+                            <span
+                                :key="roleTitles[roleTitleIndex]"
+                                class="col-start-1 row-start-1 text-center"
+                            >{{ roleTitles[roleTitleIndex] }}</span>
+                        </Transition>
+                    </button>
+                    in Vancouver, BC with a background in computer science.
                 </p>
                 <p class="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
                     I started as a physics major at the University of British Columbia and switched to computer science after taking an introductory programming course which made me fall in love with coding.
@@ -133,3 +157,23 @@ const projects = [
         </section>
     </div>
 </template>
+
+<style scoped>
+.role-title-enter-active,
+.role-title-leave-active {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.role-title-enter-from,
+.role-title-leave-to {
+    opacity: 0;
+    transform: translateY(0.25rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .role-title-enter-active,
+    .role-title-leave-active {
+        transition: none;
+    }
+}
+</style>
