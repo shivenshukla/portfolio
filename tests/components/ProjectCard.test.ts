@@ -21,7 +21,8 @@ describe('ProjectCard', () => {
         const link = wrapper.find('a')
         expect(link.exists()).toBe(true)
         expect(link.attributes('href')).toBe('https://example.com/project')
-        expect(link.text()).toBe('Acme Project')
+        expect(link.text()).toBe('Source code')
+        expect(link.attributes('target')).toBe('_blank')
 
         // Verify skills are listed
         expect(wrapper.text()).toContain('Anvil Dropping')
