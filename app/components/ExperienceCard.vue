@@ -10,10 +10,7 @@ defineProps({
 <template>
     <div class="p-5 bg-neutral-100 dark:bg-neutral-900 my-4 rounded-xl">
         <h3 class="text-2xl font-bold">
-            <a
-                class="hover:underline"
-                :href="site"
-            >{{ company }}</a>
+            <a :href="site">{{ company }}</a>
         </h3>
         <div
             v-for="(role, index) in roles"
